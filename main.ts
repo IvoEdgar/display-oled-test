@@ -1,7 +1,7 @@
-let clrX = 0
-let clrY = 0
-let clrX2 = 0
 let clrY2 = 0
+let clrX2 = 0
+let clrY = 0
+let clrX = 0
 let posX = randint(10, 118)
 let posY = randint(20, 54)
 let posX2 = randint(10, 118)
@@ -15,24 +15,53 @@ kitronik_VIEW128x64.show("BOUNCING PIXEL", 1, kitronik_VIEW128x64.ShowAlign.Cent
 basic.forever(function () {
     clrX = posX
     clrY = posY
+    clrX2 = posX2
+    clrY2 = posY2
     if (revX) {
-        posX += -1
+        posX += -2
     } else {
-        posX += 1
+        posX += 2
     }
     if (revY) {
         posY += -1
     } else {
         posY += 1
     }
-    if (posX < 2 || posX > 126) {
+    if (revX2) {
+        posX2 += -1
+    } else {
+        posX2 += 1
+    }
+    if (revY2) {
+        posY2 += -2
+    } else {
+        posY2 += 2
+    }
+    if (posX < 3 || posX > 125) {
         revX = !(revX)
         music.playTone(440, music.beat(BeatFraction.Sixteenth))
     }
-    if (posY < 11 || posY > 62) {
+    if (posY < 12 || posY > 61) {
         revY = !(revY)
         music.playTone(523, music.beat(BeatFraction.Sixteenth))
     }
+    if (posX2 < 3 || posX2 > 125) {
+        revX2 = !(revX2)
+        music.playTone(440, music.beat(BeatFraction.Sixteenth))
+    }
+    if (posY2 < 12 || posY2 > 61) {
+        revY2 = !(revY2)
+        music.playTone(523, music.beat(BeatFraction.Sixteenth))
+    }
+    if (posX == posX2 && posY == posY2) {
+        kitronik_VIEW128x64.invert(kitronik_VIEW128x64.onOff(true))
+        music.playTone(392, music.beat(BeatFraction.Half))
+        music.playTone(349, music.beat(BeatFraction.Half))
+        music.playTone(349, music.beat(BeatFraction.Half))
+        kitronik_VIEW128x64.invert(kitronik_VIEW128x64.onOff(false))
+    }
     kitronik_VIEW128x64.clearPixel(clrX, clrY)
     kitronik_VIEW128x64.setPixel(posX, posY)
+    kitronik_VIEW128x64.clearPixel(clrX2, clrY2)
+    kitronik_VIEW128x64.setPixel(posX2, posY2)
 })
