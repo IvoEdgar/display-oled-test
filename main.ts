@@ -7,8 +7,8 @@ let revY = Math.randomBoolean()
 music.setVolume(64)
 kitronik_VIEW128x64.show("BOUNCING PIXEL", 1, kitronik_VIEW128x64.ShowAlign.Centre)
 basic.forever(function () {
-    clrX = posX
-    clrY = posY
+    clrX += posX
+    clrY += posY
     if (revX) {
         posX += -1
     } else {
