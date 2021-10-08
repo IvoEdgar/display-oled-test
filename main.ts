@@ -2,6 +2,7 @@ let clrY2 = 0
 let clrX2 = 0
 let clrY = 0
 let clrX = 0
+let counter = 0
 let posX = randint(10, 118)
 let posY = randint(20, 54)
 let posX2 = randint(10, 118)
@@ -11,7 +12,7 @@ let revY = Math.randomBoolean()
 let revX2 = Math.randomBoolean()
 let revY2 = Math.randomBoolean()
 music.setVolume(32)
-kitronik_VIEW128x64.show("BOUNCING PIXEL", 1, kitronik_VIEW128x64.ShowAlign.Centre)
+kitronik_VIEW128x64.show("COLLISION DOTS: " + convertToText(counter), 1, kitronik_VIEW128x64.ShowAlign.Centre)
 basic.forever(function () {
     clrX = posX
     clrY = posY
@@ -54,6 +55,8 @@ basic.forever(function () {
         music.playTone(523, music.beat(BeatFraction.Sixteenth))
     }
     if (posX == posX2 && posY == posY2) {
+        counter += 1
+        kitronik_VIEW128x64.show("COLLISION DOTS: " + convertToText(counter), 1, kitronik_VIEW128x64.ShowAlign.Centre)
         kitronik_VIEW128x64.invert(kitronik_VIEW128x64.onOff(true))
         music.playTone(392, music.beat(BeatFraction.Half))
         music.playTone(349, music.beat(BeatFraction.Half))
