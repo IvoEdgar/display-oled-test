@@ -3,15 +3,15 @@ let clrX2 = 0
 let clrY = 0
 let clrX = 0
 let counter = 0
-let posX = randint(10, 118)
-let posY = randint(20, 54)
-let posX2 = randint(10, 118)
-let posY2 = randint(20, 54)
+let posX = 2 * randint(5, 59)
+let posY = 2 * randint(10, 27)
+let posX2 = 2 * randint(5, 59)
+let posY2 = 2 * randint(10, 27)
 let revX = Math.randomBoolean()
 let revY = Math.randomBoolean()
 let revX2 = Math.randomBoolean()
 let revY2 = Math.randomBoolean()
-music.setVolume(32)
+music.setVolume(64)
 kitronik_VIEW128x64.show("COLLISION DOTS: " + convertToText(counter), 1, kitronik_VIEW128x64.ShowAlign.Centre)
 basic.forever(function () {
     clrX = posX
