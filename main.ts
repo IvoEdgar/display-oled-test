@@ -11,7 +11,7 @@ let revX = Math.randomBoolean()
 let revY = Math.randomBoolean()
 let revX2 = Math.randomBoolean()
 let revY2 = Math.randomBoolean()
-music.setVolume(64)
+music.setVolume(96)
 kitronik_VIEW128x64.show("COLLISION DOTS: " + convertToText(counter), 1, kitronik_VIEW128x64.ShowAlign.Centre)
 basic.forever(function () {
     clrX = posX
